@@ -176,6 +176,7 @@ nav button {
     float:right;
     border:1px solid #888;
     margin: 2px 2px;
+    padding: 5px 10px;
 }
 
 /* Estilos para o resultado */
@@ -229,24 +230,26 @@ main span {
 }
 
 #item_usuario1 {
-    width: 70px;
-    height: 35px;
+    width: 80px;
+    height: 40px;
+    font-size:18px;
 }
 
 #item_usuario2 {
-    width: 70px;
-    height: 35px;
+    width: 80px;
+    height: 40px;
+    font-size:18px;
 }
 #item_usuario5{
-    width: 50px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     margin-bottom: 2px;
     border-radius: 10px;
     font-size:18px;
 }
 #item_usuario6{
-    width: 50px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     border-radius: 10px;
     font-size:18px;
 }
