@@ -1,0 +1,17 @@
+Licença de Restrição de Uso
+
+Esta é uma licença de código restritiva. Os termos e condições a seguir estabelecem as regras para o uso deste código-fonte e proíbem expressamente o uso, a cópia, a modificação, a distribuição ou qualquer outra forma de exploração deste código-fonte.
+
+Termos e Condições:
+
+1. Você NÃO tem permissão para usar, copiar, modificar, distribuir ou sublicenciar este código-fonte para qualquer finalidade.
+
+2. Todos os direitos autorais, marcas registradas e outros direitos de propriedade intelectual associados a este código-fonte são reservados e mantidos pelo autor.
+
+3. Este código-fonte é fornecido "COMO ESTÁ", sem garantias de qualquer tipo, expressas ou implícitas. O autor não assume qualquer responsabilidade por danos ou perdas decorrentes do uso deste código-fonte.
+
+4. Qualquer violação destes termos e condições automaticamente revoga sua licença e você deve cessar imediatamente todo o uso deste código-fonte.
+
+Ao usar este código-fonte, você concorda em estar vinculado por estes termos e condições. Se você não concordar com esses termos, você não tem permissão para usar este código-fonte.
+
+©Renata Veras Venturim - Todos os direitos reservados
