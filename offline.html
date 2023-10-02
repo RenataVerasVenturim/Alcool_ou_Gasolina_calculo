@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="App de lista de compras">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <title>Álcool ou gasolina?</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="ícone do app">
+            <button  aria-label="Menu">
+                <svg id="btn-menu" width="24" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.96317 2.13703H30.6939C31.4122 2.13703 31.9999 1.7868 31.9999 1.06853C31.9999 0.350261 31.4122 3.05176e-05 30.6939 3.05176e-05H1.96317C1.2449 3.05176e-05 0.657227 0.350261 0.657227 1.06853C0.657227 1.7868 1.2449 2.13703 1.96317 2.13703ZM30.6939 21.37H1.96317C1.2449 21.37 0.657227 21.4828 0.657227 22.2011C0.657227 22.9193 1.2449 23.507 1.96317 23.507H30.6939C31.4122 23.507 31.9999 23.1568 31.9999 22.4385C31.9999 21.7072 31.4122 21.37 30.6939 21.37ZM30.6939 10.685H1.96317C1.2449 10.685 0.657227 11.0353 0.657227 11.7535C0.657227 12.4718 1.2449 12.822 1.96317 12.822H30.6939C31.4122 12.822 31.9999 12.4718 31.9999 11.7535C31.9999 11.0222 31.4122 10.685 30.6939 10.685Z" fill="#1C1C1C"></path>
+                </svg>
+            </button>
+
+            <ul id="lista_suspensa" style="display: none;">
+                <li>
+                    <a href="#" class="list" id="link-sobre_app">
+                        SOBRE O APP
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="sobre_app-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="fechar-sobre_app">&times;</span>
+                <ul id="dadosapp">
+                    <li><hr></li>
+                    <li><strong>Dados do app:</strong> </li>
+                    <li><hr></li>                 
+                    <li class="linha_sobre_app">Nome: Álcool ou gasolina - cálculo</li>
+                    <li class="linha_sobre_app">Criado por: Renata Veras Venturim</li>
+                    <li><hr></li>
+                    <li><strong>Funções:</strong> </li>
+                    <li><hr></li>                 
+                    <li class="linha_sobre_app">✅Cadastrar informações de rendimento do veículo</li>
+                    <li class="linha_sobre_app">✅Cálculo da opção mais econômica (álcool x gasolina)</li>
+                    <li><hr></li>             
+                    <li><strong>Funções específicas:</strong> </li>
+                    <li><hr></li>                 
+                    <li class="linha_sobre_app"><strong>Editar dados veículo</strong> - clique em "&#x270E;"</li>
+                </ul>        
+            </div>
+        </div>
+        <div id="msg_inicial">
+            <picture>
+                <source media="(max-width:750px)" srcset="iconep.jpg" type="image/png">
+                <source media="(max-width:1050px)" srcset="iconep.jpg" type="image/png">
+                <img id="msg_inicial_icon" src="iconem.jpg" alt="ícone do app">
+            </picture>
+            <p id="frase_inicial">Toque no botão "+ Veículo" para começar</p>
+        </div>
+        <div class="modal" id="rendimento_modelo" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="fechar-rendimento-modelo">×</span>
+                <h2>Qual o rendimento do seu veículo?</h2>
+                <span>
+                    <label for="item_usuario1">ÁLCOOL</label>
+                    <br><input type="number" id="item_usuario1" required placeholder="km/l">
+                </span>
+                <span>
+                    <label for="item_usuario2">GASOLINA</label>
+                    <br><input type="number" id="item_usuario2" required placeholder="km/l">
+                </span>
+                <br><input type="button" id="btn-nome" value="SALVAR" class="btn">
+            </div>
+        </div>
+        <div id="calculo_combustivel"  style="display: none;">
+            <div id="valor_posto">
+                <h1 style="font-size: 18px;">Quanto está? (R$)</h1>
+                    <div style="display: inline-block;">
+                        <label for="item_usuario5">Álcool:</label>
+                        <input class="precos" type="text" id="item_usuario5" placeholder="R$"> 
+                    </div>
+                    <div style="display: inline-block;">
+                        <label for="item_usuario5">Gasolina:</label>
+                        <input class="precos" type="text" id="item_usuario6" placeholder="R$">
+                    </div>
+                    
+                    <div id="resultado" style="display:none;">
+                        <h2>
+                        Abastecer com:
+                        </h2>
+                    
+                            <div id="melhor_opcao_alcool" style="display:none;">
+                                <h2 style="color: orange; font-size:30px;">
+                                    ÁLCOOL
+                                </h2>
+                                <p>
+                                    Economia de <span style="color: orange;">R$</span><span id="economia_total" style="color:orange;"></span>
+                                    a cada R$100,00 abastecidos com <span style="color:orange;">álcool</span>.
+                                </p>
+                                <p>
+                                    O rendimento do álcool em relação à gasolina no seu veículo é de <span id="relacao_rendimento" style="color:orange"></span><span style="color:orange">%</span>
+                                </p>
+                                <p>
+                                    O álcool está <span id="relacao_precos_alcool_gasolina" style="color:orange"></span><span style="color:orange">%</span>
+                                    do preço da gasolina.
+                                </p>        
+                            </div>
+                            <div id="melhor_opcao_gasolina" style="display:none;">
+                                <h2 style="color: blue; font-size:30px;">
+                                    GASOLINA
+                                </h2>
+                                <p>
+                                    Economia de <span style="color: orange;">R$</span><span id="economia_total2" style="color:orange;"></span>
+                                    a cada R$100,00 abastecidos com <span style="color:orange;">gasolina</span>.
+                                </p>
+                                <p>
+                                    O rendimento do álcool em relação à gasolina no seu veículo é de <span id="relacao_rendimento2" style="color:orange"></span><span style="color:orange">%</span>
+                                </p>
+                                <p>
+                                    O álcool está <span id="relacao_precos_alcool_gasolina2" style="color:orange"></span><span style="color:orange">%</span>
+                                    do preço da gasolina.
+                                </p>
+                            </div>
+                        
+                    </div> 
+            </div>
+            <div id="automovel_cadastrado">
+                
+                <span id="editar_automovel">&#x270E;</span>
+                <h1 style="font-size: 16px;">Veículo cadastrado (rendimento):</h1>
+                <p>
+                    Álcool :<span id="item_usuario3"></span> km/litro
+                </p>
+                <p>
+                    Gasolina :<span id="item_usuario4"></span> km/litro
+                </p>
+            </div>
+        </div>
+
+        <div id="add-button" role="button" aria-label="Cadastrar veículo">
+            <svg width="100" height="60" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="40" rx="10" ry="10" fill="lightblue" />
+                <text x="50" y="20" font-size="16" text-anchor="middle" dy=".3em" fill="black">+ Veículo</text>
+            </svg>
+        </div>
+        
+        
+    </main>
+    <script src="script.js"></script>
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('pwabuilder-sw.js')
+        }
+    </script>
+</body>
+</html>
