@@ -5,7 +5,7 @@
   "display": "standalone",
   "name": "Álcool ou gasolina calculo",
   "orientation": "any",
-  "scope": "/",
+  "scope": "/app2/",
   "short_name": "Álcool ou gasolina calculo",
   "start_url": "/Alcool_ou_Gasolina_calculo/",
   "theme_color": "#75c2d3",
