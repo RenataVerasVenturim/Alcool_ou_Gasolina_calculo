@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.renataverasventurim.twa",
+        "sha256_cert_fingerprints": ["D4:FF:E3:5A:1B:DD:E8:3B:4C:41:51:12:93:AD:51:4E:4D:A8:7C:75:36:4C:66:69:FC:FA:B8:CC:6D:D6:88:B1"]
+      }
+    }]
