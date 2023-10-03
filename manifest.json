@@ -1,0 +1,48 @@
+{
+  "background_color": "#7ecbdc",
+  "description": "App de cálculo da opção mais econômica: álcool x gasolina.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Álcool ou gasolina calculo",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Álcool ou gasolina calculo",
+  "start_url": "/Alcool_ou_Gasolina_calculo/",
+  "theme_color": "#75c2d3",
+  "categories": [
+    "finance",
+    "utilities"
+  ],
+  "screenshots": [],
+  "icons": [
+      {
+        "src": "favicon.ico",
+        "type": "image/x-icon"
+      },
+      {
+        "src": "images/android/android-launchericon-512-512.png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "images/android/android-launchericon-192-192.png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "images/android/android-launchericon-144-144.png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "images/android/android-launchericon-96-96.png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "images/android/android-launchericon-72-72.png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "images/android/android-launchericon-48-48.png",
+        "sizes": "48x48"
+      } ],  
+  "shortcuts": [],
+  "lang": "pt"
+}
