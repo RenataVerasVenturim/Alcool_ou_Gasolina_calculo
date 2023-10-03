@@ -1,8 +1,10 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "io.github.renataverasventurim.twa",
-        "sha256_cert_fingerprints": ["D4:FF:E3:5A:1B:DD:E8:3B:4C:41:51:12:93:AD:51:4E:4D:A8:7C:75:36:4C:66:69:FC:FA:B8:CC:6D:D6:88:B1"]
-      }
-    }]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "xyz.appmaker.lijgqr",
+      "sha256_cert_fingerprints": ["4A:64:CC:30:01:94:34:2D:3C:D3:74:FC:E6:E1:69:5E:2F:17:EA:2E:79:67:BC:93:B4:67:99:7E:80:2F:EE:9D"]
+    }
+  }
+]
