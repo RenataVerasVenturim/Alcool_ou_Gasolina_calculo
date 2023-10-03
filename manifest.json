@@ -13,7 +13,13 @@
     "finance",
     "utilities"
   ],
-  "screenshots": [],
+  "screenshots": [
+    {
+      "src": "images/screenshot.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg"
+    }
+  ],
   "icons": [
       {
         "src": "favicon.ico",
