@@ -28,18 +28,21 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    //ao clicar fora do modal, ele retorna à página inicial
     window.addEventListener("click", function(event) {
-        if (event.target.classList.contains("modal") || event.target.classList.contains("modal-content")) {
-            var modals = document.getElementsByClassName("modal");
-
-            for (var i = 0; i < modals.length; i++) {
-                modals[i].style.display = "none";
-            }
-
-            CheckVazio();
-        }
-    });
+      if (event.target.classList.contains("modal") || event.target.classList.contains("modal-content")) {
+          // Verifica se o elemento clicado é uma descendente de "modal-content"
+          if (!event.target.closest(".modal-content")) {
+              var modals = document.getElementsByClassName("modal");
+  
+              for (var i = 0; i < modals.length; i++) {
+                  modals[i].style.display = "none";
+              }
+  
+              CheckVazio();
+          }
+      }
+  });
+  
     // adiconar função de abrir configuração carro ao clicar no ícone inicial
     document.getElementById("msg_inicial_icon").addEventListener("click",function(){
         event.stopPropagation();
@@ -66,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("fechar-rendimento-modelo").addEventListener("click", function() {
         CheckVazio();    
     });
+        // fechar configuração rendimento-pesquisa
+        document.getElementById("fechar-rendimento_pesquisa").addEventListener("click", function() {
+          CheckVazio();    
+      });
+  
 
     //salvar cadastro de veículo
     document.getElementById("btn-nome").addEventListener("click", function() {
