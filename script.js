@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.getElementById("fechar-escolha_import_ou_manual").addEventListener("click",function(){
       document.getElementById("escolha_import_ou_manual").style.display="none";
-      document.getElementById("msg_inicial").style.display="block";
+      CheckVazio();
     })
 
     window.addEventListener("click", function(event) {
