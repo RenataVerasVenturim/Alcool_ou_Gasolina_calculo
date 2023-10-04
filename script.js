@@ -37033,25 +37033,31 @@ var gasolinaEstradaInput = document.getElementById("gasolina_estrada");
             });
         }
 
-        // Função para preencher o select de modelo com base na marca selecionada
-        function preencherModelos(marcaSelecionada) {
-            // Limpe as opções atuais do select de modelo
-            modeloSelect.innerHTML = "";
-        
-            // Filtrar modelos com base na marca selecionada
-            var modelosFiltrados = modelosJSON.filter(function (modelo) {
-                return modelo.MARCA === marcaSelecionada; // Correção aqui para comparar com a marca selecionada
-            });
-        
-            // Preencha o select de modelo com as opções filtradas
-            modelosFiltrados.forEach(function (modelo) {
-                var option = document.createElement("option");
-                option.value = modelo.MODELO;
-                option.text = modelo.MODELO;
-                modeloSelect.appendChild(option);
-            });
-        }
-        
+// Função para preencher o select de modelo com base na marca selecionada
+function preencherModelos(marcaSelecionada) {
+  // Limpe as opções atuais do select de modelo
+  modeloSelect.innerHTML = "";
+
+  // Filtrar modelos com base na marca selecionada e manter um conjunto (Set) para evitar duplicatas
+  var modelosSet = new Set();
+  modelosJSON.forEach(function (modelo) {
+      if (modelo.MARCA === marcaSelecionada) {
+          modelosSet.add(modelo.MODELO);
+      }
+  });
+
+  // Converter o conjunto de modelos de volta para um array
+  var modelosUnicos = Array.from(modelosSet);
+
+  // Preencha o select de modelo com as opções únicas
+  modelosUnicos.forEach(function (modelo) {
+      var option = document.createElement("option");
+      option.value = modelo;
+      option.text = modelo;
+      modeloSelect.appendChild(option);
+  });
+}
+      
         // Adicione um ouvinte de eventos ao select de marca
         marcaSelect.addEventListener("change", function () {
             var selectedMarca = marcaSelect.value;
