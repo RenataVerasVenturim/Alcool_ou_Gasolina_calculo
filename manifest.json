@@ -50,9 +50,7 @@
   ],
   "shortcuts": [],
   "lang": "pt",
-  "display_override": "fullscreen",
   "edge_side_panel": "right",
   "handle_links": true,
-  "app_id": "seu_app_id",
-  "launch_handler": "nome_do_lançador"
+  "app_id": "seu_app_id"
 }
