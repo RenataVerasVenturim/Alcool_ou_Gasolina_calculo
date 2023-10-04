@@ -372,6 +372,23 @@ document.getElementById("rendimento_modelo").style.display="block";
 }
 )
 
+// botão de salvar dados importados (cadstrar veículo)
+
+document.getElementById("btn-nome2").addEventListener("click", function () {
+  var alcool_cidade = document.getElementById("alcool_cidade").value;
+  var gasolina_cidade = document.getElementById("gasolina_cidade").value;
+  var alcool_estrada = document.getElementById("alcool_estrada").value;
+  var gasolina_estrada = document.getElementById("gasolina_estrada").value;
+  console.log("alcool_cidade está vindo como:" + alcool_cidade);
+
+  if (alcool_cidade !== "" && gasolina_cidade !== "" && alcool_estrada !== "" && gasolina_estrada !== "") {
+      document.getElementById("item_usuario1").value = document.getElementById("alcool_cidade").value;
+      document.getElementById("item_usuario2").value = document.getElementById("gasolina_cidade").value;
+      document.getElementById("item_usuario7").value = document.getElementById("alcool_estrada").value;
+      document.getElementById("item_usuario8").value =document.getElementById("gasolina_estrada").value;
+  }
+});
+
 var modelosJSON = [
     {
       "MARCA": "AUDI",
