@@ -159,13 +159,46 @@ function VerificarMelhorOpcao() {
 }
 
 function calcularVantagem() {
-  
-var status = document.getElementById("status"); 
-  if(status.textContent == "Cidade"){
+  var status = document.getElementById("status"); 
+  if (status.textContent == "Cidade") {
+      var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
+      var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
+      var rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent.replace(",", "."));
+      var rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent.replace(",", "."));
+
+      console.log("O RENDIMENTO álcool recebido é:" + rendimentoAlcool + " e o RENDIMENTO gasolina é:" + rendimentoGasolina);
+
+      if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
+          var vantagemAlcool = precoAlcool / rendimentoAlcool;
+          var vantagemGasolina = precoGasolina / rendimentoGasolina;
+
+          if (vantagemAlcool < vantagemGasolina) {
+              document.getElementById("resultado").style.display = "block";
+              document.getElementById("melhor_opcao_alcool").style.display = "block";
+              document.getElementById("melhor_opcao_gasolina").style.display = "none";
+          } else {
+              document.getElementById("resultado").style.display = "block";
+              document.getElementById("melhor_opcao_gasolina").style.display = "block";
+              document.getElementById("melhor_opcao_alcool").style.display = "none";
+          }
+
+          var relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
+          var relacao_precos_alcool_gasolina = (precoAlcool / precoGasolina) * 100;
+
+          document.getElementById("relacao_rendimento").textContent = relacao_alcool_gasolina.toFixed(0); 
+          document.getElementById("relacao_precos_alcool_gasolina").textContent = relacao_precos_alcool_gasolina.toFixed(0);
+          document.getElementById("relacao_rendimento2").textContent = relacao_alcool_gasolina.toFixed(0); 
+          document.getElementById("relacao_precos_alcool_gasolina2").textContent = relacao_precos_alcool_gasolina.toFixed(0);
+      } else {
+          document.getElementById("resultado").style.display = "none";
+      }
+  }
+  if (status.textContent == "Estrada") {
     var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
     var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
-    var rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent);
-    var rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent);
+    var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent.replace(",", "."));
+    var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent.replace(",", "."));
+    console.log("O RENDIMENTO álcool recebido é:" + rendimentoAlcool + " e o RENDIMENTO gasolina é:" + rendimentoGasolina);
 
     if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
         var vantagemAlcool = precoAlcool / rendimentoAlcool;
@@ -180,52 +213,19 @@ var status = document.getElementById("status");
             document.getElementById("melhor_opcao_gasolina").style.display = "block";
             document.getElementById("melhor_opcao_alcool").style.display = "none";
         }
-                
-        var relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina)*100;
-        var relacao_precos_alcool_gasolina = (precoAlcool/precoGasolina)*100;
+
+        var relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
+        var relacao_precos_alcool_gasolina = (precoAlcool / precoGasolina) * 100;
 
         document.getElementById("relacao_rendimento").textContent = relacao_alcool_gasolina.toFixed(0); 
         document.getElementById("relacao_precos_alcool_gasolina").textContent = relacao_precos_alcool_gasolina.toFixed(0);
         document.getElementById("relacao_rendimento2").textContent = relacao_alcool_gasolina.toFixed(0); 
         document.getElementById("relacao_precos_alcool_gasolina2").textContent = relacao_precos_alcool_gasolina.toFixed(0);
 
-            } else {
-                document.getElementById("resultado").style.display = "none";
-            }
+    } else {
+        document.getElementById("resultado").style.display = "none";
+    }
 }
-if(status.textContent == "Estrada"){
-
-        var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
-        var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
-        var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent);
-        var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent);
-
-        if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
-            var vantagemAlcool = precoAlcool / rendimentoAlcool;
-            var vantagemGasolina = precoGasolina / rendimentoGasolina;
-
-            if (vantagemAlcool < vantagemGasolina) {
-                document.getElementById("resultado").style.display = "block";
-                document.getElementById("melhor_opcao_alcool").style.display = "block";
-                document.getElementById("melhor_opcao_gasolina").style.display = "none";
-            } else {
-                document.getElementById("resultado").style.display = "block";
-                document.getElementById("melhor_opcao_gasolina").style.display = "block";
-                document.getElementById("melhor_opcao_alcool").style.display = "none";
-            }
-            
-      var relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina)*100;
-      var relacao_precos_alcool_gasolina = (precoAlcool/precoGasolina)*100;
-
-      document.getElementById("relacao_rendimento").textContent = relacao_alcool_gasolina.toFixed(0); 
-      document.getElementById("relacao_precos_alcool_gasolina").textContent = relacao_precos_alcool_gasolina.toFixed(0);
-      document.getElementById("relacao_rendimento2").textContent = relacao_alcool_gasolina.toFixed(0); 
-      document.getElementById("relacao_precos_alcool_gasolina2").textContent = relacao_precos_alcool_gasolina.toFixed(0);
-
-        } else {
-            document.getElementById("resultado").style.display = "none";
-        }
-      }
 }
 // Chame a função para configurar os ouvintes de eventos quando a página for carregada
 
@@ -237,30 +237,30 @@ window.addEventListener("load", VerificarMelhorOpcao);
 function calcularEconomia() {
     var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
     var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
-    const status = document.getElementById("status").textContent;
+    var status = document.getElementById("status").textContent;
     if (status === "Cidade") {
-      const rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent);
-    const rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent);
- 
+    var rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent.replace(",", "."));
+    var rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent.replace(",", "."));
+      
     if (precoAlcool > 0 && precoGasolina > 0 && rendimentoAlcool > 0 && rendimentoGasolina > 0) {
         const kmAlcool = (100 / precoAlcool) * rendimentoAlcool;
         const kmGasolina = (100 / precoGasolina) * rendimentoGasolina;
 
         if (kmAlcool > kmGasolina) {
-            const economiaEmReais = ((kmAlcool - kmGasolina) / rendimentoGasolina) * precoGasolina;
+            var economiaEmReais = ((kmAlcool - kmGasolina) / rendimentoGasolina) * precoGasolina;
             document.getElementById("melhor_opcao_alcool").style.display = "block";
             document.getElementById("melhor_opcao_gasolina").style.display = "none";
             document.getElementById("economia_total").textContent = economiaEmReais.toFixed(2);
         } else {
-            const economiaEmReais = ((kmGasolina - kmAlcool) / rendimentoAlcool) * precoAlcool;
+            var economiaEmReais = ((kmGasolina - kmAlcool) / rendimentoAlcool) * precoAlcool;
             document.getElementById("melhor_opcao_gasolina").style.display = "block";
             document.getElementById("melhor_opcao_alcool").style.display = "none";
             document.getElementById("economia_total2").textContent = economiaEmReais.toFixed(2);
         }
 
         // Calcula as relações
-        const relacaoAlcoolGasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
-        const relacaoPrecosAlcoolGasolina = (precoAlcool / precoGasolina) * 100;
+        var relacaoAlcoolGasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
+        var relacaoPrecosAlcoolGasolina = (precoAlcool / precoGasolina) * 100;
         document.getElementById("relacao_rendimento").textContent = relacaoAlcoolGasolina.toFixed(0);
         document.getElementById("relacao_precos_alcool_gasolina").textContent = relacaoPrecosAlcoolGasolina.toFixed(0);
     } else {
@@ -272,28 +272,28 @@ function calcularEconomia() {
     }
 } else{
       // cálculo se for estrada
-        var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent);
-        var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent);
+        var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent.replace(",", "."));
+        var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent.replace(",", "."));
     
       if (precoAlcool > 0 && precoGasolina > 0 && rendimentoAlcool > 0 && rendimentoGasolina > 0) {
-        const kmAlcool = (100 / precoAlcool) * rendimentoAlcool;
-        const kmGasolina = (100 / precoGasolina) * rendimentoGasolina;
+        var kmAlcool = (100 / precoAlcool) * rendimentoAlcool;
+        var kmGasolina = (100 / precoGasolina) * rendimentoGasolina;
 
         if (kmAlcool > kmGasolina) {
-            const economiaEmReais = ((kmAlcool - kmGasolina) / rendimentoGasolina) * precoGasolina;
+            var economiaEmReais = ((kmAlcool - kmGasolina) / rendimentoGasolina) * precoGasolina;
             document.getElementById("melhor_opcao_alcool").style.display = "block";
             document.getElementById("melhor_opcao_gasolina").style.display = "none";
             document.getElementById("economia_total").textContent = economiaEmReais.toFixed(2);
         } else {
-            const economiaEmReais = ((kmGasolina - kmAlcool) / rendimentoAlcool) * precoAlcool;
+            var economiaEmReais = ((kmGasolina - kmAlcool) / rendimentoAlcool) * precoAlcool;
             document.getElementById("melhor_opcao_gasolina").style.display = "block";
             document.getElementById("melhor_opcao_alcool").style.display = "none";
             document.getElementById("economia_total2").textContent = economiaEmReais.toFixed(2);
         }
 
         // Calcula as relações
-        const relacaoAlcoolGasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
-        const relacaoPrecosAlcoolGasolina = (precoAlcool / precoGasolina) * 100;
+        var relacaoAlcoolGasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
+        var relacaoPrecosAlcoolGasolina = (precoAlcool / precoGasolina) * 100;
         document.getElementById("relacao_rendimento").textContent = relacaoAlcoolGasolina.toFixed(0);
         document.getElementById("relacao_precos_alcool_gasolina").textContent = relacaoPrecosAlcoolGasolina.toFixed(0);
     } else {
@@ -379,14 +379,23 @@ document.getElementById("btn-nome2").addEventListener("click", function () {
   var gasolina_cidade = document.getElementById("gasolina_cidade").value;
   var alcool_estrada = document.getElementById("alcool_estrada").value;
   var gasolina_estrada = document.getElementById("gasolina_estrada").value;
-  console.log("alcool_cidade está vindo como:" + alcool_cidade);
 
   if (alcool_cidade !== "" && gasolina_cidade !== "" && alcool_estrada !== "" && gasolina_estrada !== "") {
       document.getElementById("item_usuario1").value = document.getElementById("alcool_cidade").value;
       document.getElementById("item_usuario2").value = document.getElementById("gasolina_cidade").value;
       document.getElementById("item_usuario7").value = document.getElementById("alcool_estrada").value;
       document.getElementById("item_usuario8").value =document.getElementById("gasolina_estrada").value;
-  }
+
+      
+  alert("Importado com sucesso!");
+
+  document.getElementById("importar").style.display="none";
+  document.getElementById("rendimento_modelo").style.display="block";
+    } else{
+      alert ("Preencha com a marca, modelo e versão");
+    }
+
+
 });
 
 var modelosJSON = [
@@ -37315,6 +37324,7 @@ versaoSelect.addEventListener("change", function () {
 preencherMarcas();
 
 // Limpar o localStorage
-localStorage.clear();
+//localStorage.clear();
+
 });
 
