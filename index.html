@@ -50,6 +50,44 @@
                 </ul>        
             </div>
         </div>
+        <div id="rendimento_pesquisa" class="modal" style="display:block;">
+            <div class="modal-content">
+                <label for="frutas">MARCA:</label>
+                
+                <select id="marca" name="marca" style="font-size:20px;">
+                    <option value="AUDI">AUDI</option>
+                    <option value="BMW">BMW</option>
+                    <option value="CAOA CHERY">CAOA CHERY</option>
+                    <option value="CHEVROLET">CHEVROLET</option>
+                    <option value="CHERY">CHERY</option>
+                    <option value="CITROEN">CITROEN</option>
+                    <option value="FORD">FORD</option>
+                    <option value="FIAT">FIAT</option>
+                    <option value="HONDA">HONDA</option>
+                    <option value="HYUNDAI">HYUNDAI</option>
+                    <option value="JAC">JAC</option>
+                    <option value="JAGUAR">JAGUAR</option>
+                    <option value="JEEP">JEEP</option>
+                    <option value="KIA">KIA</option>
+                    <option value="LAND ROVER">LAND ROVER</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="Mitsubishi">Mitsubishi</option>
+                    <option value="NISSAN">NISSAN</option>
+                    <option value="Peugeot">Peugeot</option>
+                    <option value="Renault">Renault</option>
+                    <option value="TOYOTA">TOYOTA</option>
+                    <option value="VOLKSWAGEN">VOLKSWAGEN</option>                                  
+                </select>
+                <label for="modelo">MODELO:</label>
+                <select id="modelo" name="modelo" style="font-size:20px;">
+                </select>
+                <label for="versao">VERSÃO:</label>
+                <select id="versao" name="versao" style="font-size:20px;">
+                </select>
+                
+            </div>
+        </div>
+        
         <div id="msg_inicial">
             <picture>
                 <source media="(max-width:480px)" srcset="iconep.jpg" type="image/png">
@@ -150,7 +188,7 @@
     <script src="script.js"></script>
     <script>
         if (typeof navigator.serviceWorker !== 'undefined') {
-            navigator.serviceWorker.register('pwabuilder1-sw.js')
+            navigator.serviceWorker.register('pwabuilder-sw.js')
         }
     </script>
 </body>

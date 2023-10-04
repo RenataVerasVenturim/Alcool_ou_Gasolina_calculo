@@ -4,7 +4,7 @@
   "dir": "ltr",
   "display": "standalone",
   "name": "Álcool ou gasolina calculo",
-  "orientation": "portrait",
+  "orientation": "any",
   "scope": "/",
   "short_name": "Álcool ou gasolina calculo",
   "start_url": "/Alcool_ou_Gasolina_calculo/",
@@ -49,5 +49,10 @@
     }
   ],
   "shortcuts": [],
-  "lang": "pt"
+  "lang": "pt",
+  "display_override": "fullscreen",
+  "edge_side_panel": "right",
+  "handle_links": true,
+  "app_id": "seu_app_id",
+  "launch_handler": "nome_do_lançador"
 }
