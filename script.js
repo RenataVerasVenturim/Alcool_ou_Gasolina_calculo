@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    document.getElementById("fechar-escolha_import_ou_manual").addEventListener("click",function(){
+      document.getElementById("escolha_import_ou_manual").style.display="none";
+      document.getElementById("msg_inicial").style.display="block";
+    })
 
     window.addEventListener("click", function(event) {
       if (event.target.classList.contains("modal") || event.target.classList.contains("modal-content")) {
@@ -46,21 +50,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // adiconar função de abrir configuração carro ao clicar no ícone inicial
     document.getElementById("msg_inicial_icon").addEventListener("click",function(){
         event.stopPropagation();
-        document.getElementById("rendimento_modelo").style.display = "block";
+        document.getElementById("escolha_import_ou_manual").style.display = "block";
         document.getElementById("msg_inicial").style.display = "none";
 
     })
 
     //adicionar função abrir configuração carro ao clicar no add
     document.getElementById("add-button").addEventListener("click", function() {
-            document.getElementById("rendimento_modelo").style.display = "block";
+            document.getElementById("escolha_import_ou_manual").style.display = "block";
             document.getElementById("msg_inicial").style.display = "none";
         
     })
 
     //adicionar função abrir configuração carro ao clicar no editar_automovel
     document.getElementById("editar_automovel").addEventListener("click", function() {
-        document.getElementById("rendimento_modelo").style.display = "block";
+        document.getElementById("escolha_import_ou_manual").style.display = "block";
         document.getElementById("msg_inicial").style.display = "none";
 
     })
@@ -372,6 +376,18 @@ document.getElementById("rendimento_modelo").style.display="block";
 }
 )
 
+//botão para abrir cadastro manual
+//botão para abrir caixa de importação de dados inmetro
+document.getElementById("btn-nome-manual").addEventListener("click", function(){
+  var modals = document.getElementsByClassName("modal");
+
+  for (var i = 0; i < modals.length; i++) {
+      modals[i].style.display = "none";
+  }
+document.getElementById("rendimento_modelo").style.display="block";
+}
+)
+
 // botão de salvar dados importados (cadstrar veículo)
 
 document.getElementById("btn-nome2").addEventListener("click", function () {
@@ -386,17 +402,63 @@ document.getElementById("btn-nome2").addEventListener("click", function () {
       document.getElementById("item_usuario7").value = document.getElementById("alcool_estrada").value;
       document.getElementById("item_usuario8").value =document.getElementById("gasolina_estrada").value;
 
-      
-  alert("Importado com sucesso!");
 
   document.getElementById("importar").style.display="none";
-  document.getElementById("rendimento_modelo").style.display="block";
+
+  var valorItem1 = document.getElementById("item_usuario1").value;
+    var valorItem2 = document.getElementById("item_usuario2").value;
+    var valorItem7 = document.getElementById("item_usuario7").value;
+    var valorItem8= document.getElementById("item_usuario8").value;
+    
+    if (valorItem1 === "" && valorItem2.trim() === "") {
+        alert("Ops... você esqueceu de inserir os valores!");
+    } else {
+        // Verifica se os valores não são nulos ou vazios antes de preencher os elementos e salvar no localStorage
+        if (valorItem1) {
+            document.getElementById("item_usuario1").value = valorItem1;
+        }
+        if (valorItem2) {
+            document.getElementById("item_usuario2").value = valorItem2;
+        }
+        if (valorItem7) {
+          document.getElementById("item_usuario7").value = valorItem7;
+      }
+      if (valorItem8) {
+        document.getElementById("item_usuario8").value = valorItem8;
+      }
+
+        // Define o texto dos elementos com base nos valores inseridos pelo usuário
+        var itemUsuario3 = document.getElementById("item_usuario3");
+        var itemUsuario4 = document.getElementById("item_usuario4");
+        var itemUsuario9 = document.getElementById("item_usuario9");
+        var itemUsuario10 = document.getElementById("item_usuario10");
+        itemUsuario3.textContent = valorItem1;
+        itemUsuario4.textContent = valorItem2;
+        itemUsuario9.textContent = valorItem7;
+        itemUsuario10.textContent = valorItem8;
+
+        // Salva os valores no localStorage
+        localStorage.setItem("valorItem1", valorItem1 || "");
+        localStorage.setItem("valorItem2", valorItem2 || "");
+        localStorage.setItem("valorItem7", valorItem7 || "");
+        localStorage.setItem("valorItem8", valorItem8 || "");
+
+        alert("Dados cadastrados com sucesso!");
+
+        // Oculta a div rendimento_modelo e o botão add-button
+        document.getElementById("rendimento_modelo").style.display = "none";
+        document.getElementById("add-button").style.display = "none";
+    }
+    CheckVazio();
+    calcularVantagem();
+    calcularEconomia();
     } else{
       alert ("Preencha com a marca, modelo e versão");
     }
 
 
 });
+
 
 var modelosJSON = [
     {
