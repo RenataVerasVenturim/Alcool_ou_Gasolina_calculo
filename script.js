@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-// Limpar o localStorage
-localStorage.clear();
 
     //abrir menu suspenso
     var btn_menu = document.getElementById("btn-menu");
@@ -129,7 +127,7 @@ localStorage.clear();
         var itemUsuario9 = document.getElementById("item_usuario9").textContent;
         var itemUsuario10 = document.getElementById("item_usuario10").textContent;
         // Verifica se ambos os valores estão vazios
-        if (itemUsuario3.trim() === "" && itemUsuario4.trim() === "" && itemUsuario9.trim() && itemUsuario10.trim()) {
+        if (itemUsuario3.trim() === "" && itemUsuario4.trim() === ""){
             document.getElementById("msg_inicial").style.display = "block";
         } else {
             document.getElementById("calculo_combustivel").style.display = "block";
@@ -37290,5 +37288,8 @@ versaoSelect.addEventListener("change", function () {
 
 // Inicialmente, preencha o select de marca
 preencherMarcas();
+
+// Limpar o localStorage
+localStorage.clear();
 });
 
