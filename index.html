@@ -50,16 +50,18 @@
                 </ul>        
             </div>
         </div>
-        <div id="rendimento_pesquisa" class="modal" style="display:block;">
+        <div id="importar" class="modal" style="display:none;">
             <div class="modal-content">
                 
                 <span class="close" id="fechar-rendimento_pesquisa">×</span>
-                <h2>
+                <h1>
                     Selecione o seu veículo!
-                </h2>
+                </h1>
                 <label for="marca">MARCA:</label>
                 
                 <select id="marca" name="marca" style="font-size:16px;">
+                    <option value="" disabled selected>Selecione a marca...</option>
+
                     <!--<option value="AUDI">AUDI</option>
                     <option value="BMW">BMW</option>
                     <option value="CAOA CHERY">CAOA CHERY</option>
@@ -112,6 +114,9 @@
                 <input id="gasolina_estrada" name="gasolina_estrada"  class="input_consumo"style="font-size:20px;" disabled>
                 </input>
                 <br><input type="button" id="btn-nome2" value="SALVAR" class="btn">
+                <br>
+                <h5>Não encontrou o seu veículo?<input type="button" id="btn-nome3" value="Inserir manualmente">
+                </h5>
             </div>
         </div>
         
@@ -126,27 +131,45 @@
         <div class="modal" id="rendimento_modelo" style="display: none;">
             <div class="modal-content">
                 <span class="close" id="fechar-rendimento-modelo">×</span>
-                <h2>Qual o rendimento do seu veículo?</h2>
-                <span>
+                <h1>Qual o rendimento do seu veículo?</h1>
+                <hr>
+                <h2>Na cidade</h2>
+                <span> 
                     <label for="item_usuario1">ÁLCOOL</label>
-                    <br><input type="number" id="item_usuario1" required placeholder="km/l">
+                    <br><input type="number" id="item_usuario1" class="cx_valor" required placeholder="km/l">
                 </span>
                 <span>
                     <label for="item_usuario2">GASOLINA</label>
-                    <br><input type="number" id="item_usuario2" required placeholder="km/l">
+                    <br><input type="number" id="item_usuario2" class="cx_valor" required placeholder="km/l">
+                </span>
+                <hr>
+                <h2>Na estrada</h2>
+                <span>
+                    <label for="item_usuario7">ÁLCOOL</label>
+                    <br><input type="number" id="item_usuario7" class="cx_valor" required placeholder="km/l">
+                </span>
+                <span>
+                    <label for="item_usuario8">GASOLINA</label>
+                    <br><input type="number" id="item_usuario8" class="cx_valor" required placeholder="km/l">
                 </span>
                 <br><input type="button" id="btn-nome" value="SALVAR" class="btn">
+                <br> <input type="button" id="btn-nome-import" value="IMPORTAR DADOS" class="btn-import">
             </div>
         </div>
         <div id="calculo_combustivel"  style="display: none;">
             <div id="valor_posto">
+                <label class="switch">
+                    <input type="checkbox" id="toggleButton">
+                    <span class="slider"></span>
+                </label>
+                <p id="status">Cidade</p>
                 <h1 style="font-size: 20px;">Quanto está? (R$)</h1>
                     <div style="display: inline-block;">
                         <label for="item_usuario5">Álcool:</label>
                         <input class="precos" type="text" id="item_usuario5" placeholder="R$/L"> 
                     </div>
                     <div style="display: inline-block;">
-                        <label for="item_usuario5">Gasolina:</label>
+                        <label for="item_usuario6">Gasolina:</label>
                         <input class="precos" type="text" id="item_usuario6" placeholder="R$/L">
                     </div>
                     
@@ -194,11 +217,25 @@
                 
                 <span id="editar_automovel" aria-label="editar dados veículo">&#x270E;</span>
                 <h1 style="font-size: 16px;">Veículo cadastrado (rendimento):</h1>
+                <hr>
+                <h2>
+                    Na cidade
+                </h2>
                 <p>
                     Álcool :<span id="item_usuario3"></span> km/litro
                 </p>
                 <p>
                     Gasolina :<span id="item_usuario4"></span> km/litro
+                </p>
+                <hr>
+                <h2> 
+                    Na estrada
+                </h2>
+                <p>
+                    Álcool :<span id="item_usuario9"></span> km/litro
+                </p>
+                <p>
+                    Gasolina :<span id="item_usuario10"></span> km/litro
                 </p>
             </div>
         </div>

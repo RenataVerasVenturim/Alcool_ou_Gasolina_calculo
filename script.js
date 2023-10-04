@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+// Limpar o localStorage
+localStorage.clear();
 
     //abrir menu suspenso
     var btn_menu = document.getElementById("btn-menu");
@@ -71,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("btn-nome").addEventListener("click", function() {
     var valorItem1 = document.getElementById("item_usuario1").value;
     var valorItem2 = document.getElementById("item_usuario2").value;
-    
-    var calculo_combustivel = document.getElementById("calculo_combustivel");
+    var valorItem7 = document.getElementById("item_usuario7").value;
+    var valorItem8= document.getElementById("item_usuario8").value;
     
     if (valorItem1 === "" && valorItem2.trim() === "") {
         alert("Ops... você esqueceu de inserir os valores!");
@@ -84,16 +86,28 @@ document.addEventListener("DOMContentLoaded", function() {
         if (valorItem2) {
             document.getElementById("item_usuario2").value = valorItem2;
         }
+        if (valorItem7) {
+          document.getElementById("item_usuario7").value = valorItem7;
+      }
+      if (valorItem8) {
+        document.getElementById("item_usuario8").value = valorItem8;
+      }
 
         // Define o texto dos elementos com base nos valores inseridos pelo usuário
         var itemUsuario3 = document.getElementById("item_usuario3");
         var itemUsuario4 = document.getElementById("item_usuario4");
+        var itemUsuario9 = document.getElementById("item_usuario9");
+        var itemUsuario10 = document.getElementById("item_usuario10");
         itemUsuario3.textContent = valorItem1;
         itemUsuario4.textContent = valorItem2;
+        itemUsuario9.textContent = valorItem7;
+        itemUsuario10.textContent = valorItem8;
 
         // Salva os valores no localStorage
         localStorage.setItem("valorItem1", valorItem1 || "");
         localStorage.setItem("valorItem2", valorItem2 || "");
+        localStorage.setItem("valorItem7", valorItem7 || "");
+        localStorage.setItem("valorItem8", valorItem8 || "");
 
         alert("Dados cadastrados com sucesso!");
 
@@ -103,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     CheckVazio();
     calcularVantagem();
+    calcularEconomia();
 });
 
     function CheckVazio() {
@@ -111,8 +126,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Pega os valores dos spans
         var itemUsuario3 = document.getElementById("item_usuario3").textContent;
         var itemUsuario4 = document.getElementById("item_usuario4").textContent;
+        var itemUsuario9 = document.getElementById("item_usuario9").textContent;
+        var itemUsuario10 = document.getElementById("item_usuario10").textContent;
         // Verifica se ambos os valores estão vazios
-        if (itemUsuario3.trim() === "" && itemUsuario4.trim() === "") {
+        if (itemUsuario3.trim() === "" && itemUsuario4.trim() === "" && itemUsuario9.trim() && itemUsuario10.trim()) {
             document.getElementById("msg_inicial").style.display = "block";
         } else {
             document.getElementById("calculo_combustivel").style.display = "block";
@@ -136,14 +153,17 @@ function VerificarMelhorOpcao() {
 }
 
 function calcularVantagem() {
-    const precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
-    const precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
-    const rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent);
-    const rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent);
+  
+var status = document.getElementById("status"); 
+  if(status.textContent == "Cidade"){
+    var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
+    var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
+    var rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent);
+    var rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent);
 
     if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
-        const vantagemAlcool = precoAlcool / rendimentoAlcool;
-        const vantagemGasolina = precoGasolina / rendimentoGasolina;
+        var vantagemAlcool = precoAlcool / rendimentoAlcool;
+        var vantagemGasolina = precoGasolina / rendimentoGasolina;
 
         if (vantagemAlcool < vantagemGasolina) {
             document.getElementById("resultado").style.display = "block";
@@ -154,20 +174,53 @@ function calcularVantagem() {
             document.getElementById("melhor_opcao_gasolina").style.display = "block";
             document.getElementById("melhor_opcao_alcool").style.display = "none";
         }
-        
-const relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina)*100;
-const relacao_precos_alcool_gasolina = (precoAlcool/precoGasolina)*100;
+                
+        var relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina)*100;
+        var relacao_precos_alcool_gasolina = (precoAlcool/precoGasolina)*100;
 
-document.getElementById("relacao_rendimento").textContent = relacao_alcool_gasolina.toFixed(0); 
-document.getElementById("relacao_precos_alcool_gasolina").textContent = relacao_precos_alcool_gasolina.toFixed(0);
-document.getElementById("relacao_rendimento2").textContent = relacao_alcool_gasolina.toFixed(0); 
-document.getElementById("relacao_precos_alcool_gasolina2").textContent = relacao_precos_alcool_gasolina.toFixed(0);
+        document.getElementById("relacao_rendimento").textContent = relacao_alcool_gasolina.toFixed(0); 
+        document.getElementById("relacao_precos_alcool_gasolina").textContent = relacao_precos_alcool_gasolina.toFixed(0);
+        document.getElementById("relacao_rendimento2").textContent = relacao_alcool_gasolina.toFixed(0); 
+        document.getElementById("relacao_precos_alcool_gasolina2").textContent = relacao_precos_alcool_gasolina.toFixed(0);
 
-    } else {
-        document.getElementById("resultado").style.display = "none";
-    }
+            } else {
+                document.getElementById("resultado").style.display = "none";
+            }
 }
+if(status.textContent == "Estrada"){
 
+        var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
+        var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
+        var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent);
+        var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent);
+
+        if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
+            var vantagemAlcool = precoAlcool / rendimentoAlcool;
+            var vantagemGasolina = precoGasolina / rendimentoGasolina;
+
+            if (vantagemAlcool < vantagemGasolina) {
+                document.getElementById("resultado").style.display = "block";
+                document.getElementById("melhor_opcao_alcool").style.display = "block";
+                document.getElementById("melhor_opcao_gasolina").style.display = "none";
+            } else {
+                document.getElementById("resultado").style.display = "block";
+                document.getElementById("melhor_opcao_gasolina").style.display = "block";
+                document.getElementById("melhor_opcao_alcool").style.display = "none";
+            }
+            
+      var relacao_alcool_gasolina = (rendimentoAlcool / rendimentoGasolina)*100;
+      var relacao_precos_alcool_gasolina = (precoAlcool/precoGasolina)*100;
+
+      document.getElementById("relacao_rendimento").textContent = relacao_alcool_gasolina.toFixed(0); 
+      document.getElementById("relacao_precos_alcool_gasolina").textContent = relacao_precos_alcool_gasolina.toFixed(0);
+      document.getElementById("relacao_rendimento2").textContent = relacao_alcool_gasolina.toFixed(0); 
+      document.getElementById("relacao_precos_alcool_gasolina2").textContent = relacao_precos_alcool_gasolina.toFixed(0);
+
+        } else {
+            document.getElementById("resultado").style.display = "none";
+        }
+      }
+}
 // Chame a função para configurar os ouvintes de eventos quando a página for carregada
 
 window.addEventListener("load", CheckVazio);
@@ -176,11 +229,13 @@ window.addEventListener("load", VerificarMelhorOpcao);
 // cálculo da economia
 // Função para calcular a economia
 function calcularEconomia() {
-    const precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
-    const precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
-    const rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent);
+    var precoAlcool = parseFloat(document.getElementById("item_usuario5").value.replace(",", "."));
+    var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
+    const status = document.getElementById("status").textContent;
+    if (status === "Cidade") {
+      const rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent);
     const rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent);
-
+ 
     if (precoAlcool > 0 && precoGasolina > 0 && rendimentoAlcool > 0 && rendimentoGasolina > 0) {
         const kmAlcool = (100 / precoAlcool) * rendimentoAlcool;
         const kmGasolina = (100 / precoGasolina) * rendimentoGasolina;
@@ -209,13 +264,48 @@ function calcularEconomia() {
         document.getElementById("melhor_opcao_alcool").style.display = "none";
         document.getElementById("melhor_opcao_gasolina").style.display = "none";
     }
-}
+} else{
+      // cálculo se for estrada
+        var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent);
+        var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent);
+    
+      if (precoAlcool > 0 && precoGasolina > 0 && rendimentoAlcool > 0 && rendimentoGasolina > 0) {
+        const kmAlcool = (100 / precoAlcool) * rendimentoAlcool;
+        const kmGasolina = (100 / precoGasolina) * rendimentoGasolina;
 
+        if (kmAlcool > kmGasolina) {
+            const economiaEmReais = ((kmAlcool - kmGasolina) / rendimentoGasolina) * precoGasolina;
+            document.getElementById("melhor_opcao_alcool").style.display = "block";
+            document.getElementById("melhor_opcao_gasolina").style.display = "none";
+            document.getElementById("economia_total").textContent = economiaEmReais.toFixed(2);
+        } else {
+            const economiaEmReais = ((kmGasolina - kmAlcool) / rendimentoAlcool) * precoAlcool;
+            document.getElementById("melhor_opcao_gasolina").style.display = "block";
+            document.getElementById("melhor_opcao_alcool").style.display = "none";
+            document.getElementById("economia_total2").textContent = economiaEmReais.toFixed(2);
+        }
+
+        // Calcula as relações
+        const relacaoAlcoolGasolina = (rendimentoAlcool / rendimentoGasolina) * 100;
+        const relacaoPrecosAlcoolGasolina = (precoAlcool / precoGasolina) * 100;
+        document.getElementById("relacao_rendimento").textContent = relacaoAlcoolGasolina.toFixed(0);
+        document.getElementById("relacao_precos_alcool_gasolina").textContent = relacaoPrecosAlcoolGasolina.toFixed(0);
+    } else {
+        // Valores inválidos, definir economia como 0.00 e ocultar seções
+        document.getElementById("economia_total").textContent = "0.00";
+        document.getElementById("economia_total2").textContent = "0.00";
+        document.getElementById("melhor_opcao_alcool").style.display = "none";
+        document.getElementById("melhor_opcao_gasolina").style.display = "none";
+    }
+
+    }
+}
 function ApresentarCadastroSalvo() {
     // Verifica se há dados no localStorage
     var valorItem1 = localStorage.getItem("valorItem1");
     var valorItem2 = localStorage.getItem("valorItem2");
-
+    var valorItem7 = localStorage.getItem("valorItem7");
+    var valorItem8 = localStorage.getItem("valorItem8");
     // Verifica se os valores não são nulos ou vazios antes de preencher os elementos
     if (valorItem1 !== null && valorItem1 !== "") {
         document.getElementById("item_usuario1").value = valorItem1;
@@ -225,11 +315,56 @@ function ApresentarCadastroSalvo() {
         document.getElementById("item_usuario2").value = valorItem2;
         document.getElementById("item_usuario4").textContent = valorItem2;
     }
+    if (valorItem7 !== null && valorItem7 !== "") {
+      document.getElementById("item_usuario7").value = valorItem7;
+      document.getElementById("item_usuario9").textContent = valorItem7;
+  }
+  if (valorItem8 !== null && valorItem8 !== "") {
+    document.getElementById("item_usuario8").value = valorItem8;
+    document.getElementById("item_usuario10").textContent = valorItem8;
+}
 }
 
+// botão de alternância cidade x estrada
 
-// Limpar o localStorage
-//localStorage.clear();
+// Obtém o elemento de entrada (checkbox)
+var toggleButton = document.getElementById("toggleButton");
+
+// Obtém o elemento de status
+var status = document.getElementById("status");
+
+// Adiciona um ouvinte de eventos ao botão de alternância
+toggleButton.addEventListener("change", function () {
+    if (toggleButton.checked) {
+        status.innerText = "Estrada";
+    } else {
+        status.innerText = "Cidade";
+    }
+
+    calcularVantagem();
+    calcularEconomia();
+});
+
+//botão para abrir caixa de importação de dados inmetro
+document.getElementById("btn-nome-import").addEventListener("click", function(){
+    var modals = document.getElementsByClassName("modal");
+
+    for (var i = 0; i < modals.length; i++) {
+        modals[i].style.display = "none";
+    }
+document.getElementById("importar").style.display="block";
+  }
+)
+//botão para abrir caixa de importação de dados inmetro
+document.getElementById("btn-nome3").addEventListener("click", function(){
+  var modals = document.getElementsByClassName("modal");
+
+  for (var i = 0; i < modals.length; i++) {
+      modals[i].style.display = "none";
+  }
+document.getElementById("rendimento_modelo").style.display="block";
+}
+)
 
 var modelosJSON = [
     {
