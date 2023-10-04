@@ -460,3 +460,11 @@ font-size:18px;
   h5{
     margin:0px 0px;
   }
+
+  select{
+    max-width: 280px;
+    margin-bottom: 3px;
+  }
+#resultado_importacao{
+    background-color:rgb(170, 170, 170);
+  }

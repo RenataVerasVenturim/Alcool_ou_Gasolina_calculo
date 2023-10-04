@@ -50,15 +50,15 @@
                 </ul>        
             </div>
         </div>
-        <div id="importar" class="modal" style="display:none;">
+        <div id="importar" class="modal" style="display:block;">
             <div class="modal-content">
-                
+                <div>
                 <span class="close" id="fechar-rendimento_pesquisa">×</span>
                 <h1>
                     Selecione o seu veículo!
                 </h1>
                 <label for="marca">MARCA:</label>
-                
+                <br>
                 <select id="marca" name="marca" style="font-size:16px;">
                     <option value="" disabled selected>Selecione a marca...</option>
 
@@ -86,17 +86,21 @@
                     <option value="VOLKSWAGEN">VOLKSWAGEN</option>                                  
                     --></select><br>
                 <label for="modelo">MODELO:</label>
+                <br>
                 <select id="modelo" name="modelo" style="font-size:16px;" placeholder="Selecione a marca">
                 <option value="" disabled selected>Selecione o modelo...</option>
                 </select><br>
                 <label for="versao">VERSÃO:</label>
+                <br>
                 <select id="versao" name="versao" style="font-size:16px;">
                     <option value="" disabled selected>Selecione a versão...</option>
                 </select><br>
+                </div>
+                <div id="resultado_importacao">
                 <hr>
-                <h3>
+                <h5>
                     Consumo na cidade:
-                </h3>   
+                </h5>   
                 <label for="alcool_cidade">Álcool (km/L):</label>
                 <input id="alcool_cidade" name="alcool_cidade"  class="input_consumo" style="font-size:20px;" disabled>
                 </input><br>
@@ -104,15 +108,17 @@
                 <input id="gasolina_cidade" name="gasolina_cidade"  class="input_consumo"style="font-size:20px;" disabled>
                 </input>
                 <hr>
-                <h3>
+                <h5>
                     Consumo na estrada:
-                </h3>
+                </h5>
                 <label for="alcool_estrada">Álcool (km/L):</label>
                 <input id="alcool_estrada" name="alcool_estrada" class="input_consumo" style="font-size:20px;" disabled>
                 </input><br>
                 <label for="gasolina_estrada">Gasolina (km/L):</label>
                 <input id="gasolina_estrada" name="gasolina_estrada"  class="input_consumo"style="font-size:20px;" disabled>
                 </input>
+                </div>
+                
                 <br><input type="button" id="btn-nome2" value="SALVAR" class="btn">
                 <br>
                 <h5>Não encontrou o seu veículo?<input type="button" id="btn-nome3" value="Inserir manualmente">
