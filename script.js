@@ -15,7 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("link-sobre_app").addEventListener("click", function() {
         document.getElementById("sobre_app-modal").style.display = "block";
     });
-
+   
+    // abrir div de sugestões do menu suspenso
+    /*document.getElementById("link-sugestoes").addEventListener("click", function() {
+        document.getElementById("box-sugestoes").style.display = "block";
+    });*/
     // fechar modais
     var close_modals = document.getElementsByClassName("close");
     var modals = document.getElementsByClassName("modal");
@@ -27,6 +31,29 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+        // fechar alerta
+        var close_alertas = document.getElementById("button-close");
+        var modals = document.getElementsByClassName("modal");
+    
+            close_alertas.addEventListener("click", function() {
+                for (var j = 0; j < modals.length; j++) {
+                    modals[j].style.display = "none";
+                }
+            });
+        // fechar alerta específico da cx import
+        var close_alertas2 = document.getElementById("button-close-especifico");
+        var modals = document.getElementsByClassName("modal");
+    
+            close_alertas2.addEventListener("click", function() {
+                for (var j = 0; j < modals.length; j++) {
+                    modals[j].style.display = "none";
+                }
+                document.getElementById("importar").style.display="block";
+           
+            }
+             );
+        
+        
     document.getElementById("fechar-escolha_import_ou_manual").addEventListener("click",function(){
       document.getElementById("escolha_import_ou_manual").style.display="none";
       CheckVazio();
@@ -78,7 +105,10 @@ document.addEventListener("DOMContentLoaded", function() {
           CheckVazio();    
       });
   
-
+    document.getElementById("button-close-especifico3").addEventListener("click", function(){
+      document.getElementById("alerta_especifico3").style.display="none";
+      document.getElementById("rendimento_modelo").style.display="block";
+    })
     //salvar cadastro de veículo
     document.getElementById("btn-nome").addEventListener("click", function() {
     var valorItem1 = document.getElementById("item_usuario1").value;
@@ -86,8 +116,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var valorItem7 = document.getElementById("item_usuario7").value;
     var valorItem8= document.getElementById("item_usuario8").value;
     
-    if (valorItem1 === "" && valorItem2.trim() === "") {
-        alert("Ops... você esqueceu de inserir os valores!");
+    if (valorItem1 === "" || valorItem2.trim() === "") {
+      var alertText = document.getElementById("alert-text3");
+      var texto = "Ops... você esqueceu de inserir para álcool ou gasolina!";
+      alertText.textContent = texto;
+      document.getElementById("alerta_especifico3").style.display = "block";
+
     } else {
         // Verifica se os valores não são nulos ou vazios antes de preencher os elementos e salvar no localStorage
         if (valorItem1) {
@@ -119,7 +153,12 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("valorItem7", valorItem7 || "");
         localStorage.setItem("valorItem8", valorItem8 || "");
 
-        alert("Dados cadastrados com sucesso!");
+        var alertText = document.getElementById("alert-text");
+        var texto = "Cadastrado com sucesso!";
+        alertText.textContent = texto;
+        var modal = document.querySelector(".modal");
+        modal.style.display = "block";
+  
 
         // Oculta a div rendimento_modelo e o botão add-button
         document.getElementById("rendimento_modelo").style.display = "none";
@@ -170,8 +209,6 @@ function calcularVantagem() {
       var rendimentoAlcool = parseFloat(document.getElementById("item_usuario3").textContent.replace(",", "."));
       var rendimentoGasolina = parseFloat(document.getElementById("item_usuario4").textContent.replace(",", "."));
 
-      console.log("O RENDIMENTO álcool recebido é:" + rendimentoAlcool + " e o RENDIMENTO gasolina é:" + rendimentoGasolina);
-
       if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
           var vantagemAlcool = precoAlcool / rendimentoAlcool;
           var vantagemGasolina = precoGasolina / rendimentoGasolina;
@@ -202,7 +239,6 @@ function calcularVantagem() {
     var precoGasolina = parseFloat(document.getElementById("item_usuario6").value.replace(",", "."));
     var rendimentoAlcool = parseFloat(document.getElementById("item_usuario9").textContent.replace(",", "."));
     var rendimentoGasolina = parseFloat(document.getElementById("item_usuario10").textContent.replace(",", "."));
-    console.log("O RENDIMENTO álcool recebido é:" + rendimentoAlcool + " e o RENDIMENTO gasolina é:" + rendimentoGasolina);
 
     if (!isNaN(precoAlcool) && !isNaN(precoGasolina) && !isNaN(rendimentoAlcool) && !isNaN(rendimentoGasolina)) {
         var vantagemAlcool = precoAlcool / rendimentoAlcool;
@@ -411,7 +447,12 @@ document.getElementById("btn-nome2").addEventListener("click", function () {
     var valorItem8= document.getElementById("item_usuario8").value;
     
     if (valorItem1 === "" && valorItem2.trim() === "") {
-        alert("Ops... você esqueceu de inserir os valores!");
+      
+      var alertText = document.getElementById("alert-text");
+      var texto = "Ops... você esqueceu de inserir os valores!";
+      alertText.textContent = texto;
+
+      document.getElementById("alerta").style.display = "block";   
     } else {
         // Verifica se os valores não são nulos ou vazios antes de preencher os elementos e salvar no localStorage
         if (valorItem1) {
@@ -443,8 +484,12 @@ document.getElementById("btn-nome2").addEventListener("click", function () {
         localStorage.setItem("valorItem7", valorItem7 || "");
         localStorage.setItem("valorItem8", valorItem8 || "");
 
-        alert("Dados cadastrados com sucesso!");
-
+        var alertText = document.getElementById("alert-text");
+        var texto = "Dados cadastrados com sucesso!";
+        alertText.textContent = texto;
+        var modal = document.querySelector(".modal");
+        modal.style.display = "block";
+  
         // Oculta a div rendimento_modelo e o botão add-button
         document.getElementById("rendimento_modelo").style.display = "none";
         document.getElementById("add-button").style.display = "none";
@@ -453,7 +498,13 @@ document.getElementById("btn-nome2").addEventListener("click", function () {
     calcularVantagem();
     calcularEconomia();
     } else{
-      alert ("Preencha com a marca, modelo e versão");
+      var alertText2 = document.getElementById("alert-text2");
+      var texto = "Preencha com a marca, modelo e versão";      
+      alertText2.textContent = texto;
+      var modal = document.getElementById("alerta_especifico")
+      modal.style.display = "block";
+
+
     }
 
 
@@ -37267,12 +37318,18 @@ function preencherModelos(marcaSelecionada) {
   // Limpe as opções atuais do select de modelo
   modeloSelect.innerHTML = "";
 
+  // Adicione a opção padrão "Selecione o modelo..."
+  var defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.text = "Selecione o modelo...";
+  modeloSelect.appendChild(defaultOption);
+
   // Filtrar modelos com base na marca selecionada e manter um conjunto (Set) para evitar duplicatas
   var modelosSet = new Set();
   modelosJSON.forEach(function (modelo) {
-      if (modelo.MARCA === marcaSelecionada) {
-          modelosSet.add(modelo.MODELO);
-      }
+    if (modelo.MARCA === marcaSelecionada) {
+      modelosSet.add(modelo.MODELO);
+    }
   });
 
   // Converter o conjunto de modelos de volta para um array
@@ -37280,31 +37337,43 @@ function preencherModelos(marcaSelecionada) {
 
   // Preencha o select de modelo com as opções únicas
   modelosUnicos.forEach(function (modelo) {
-      var option = document.createElement("option");
-      option.value = modelo;
-      option.text = modelo;
-      modeloSelect.appendChild(option);
+    var option = document.createElement("option");
+    option.value = modelo;
+    option.text = modelo;
+    modeloSelect.appendChild(option);
   });
 }
-      
-        // Adicione um ouvinte de eventos ao select de marca
-        marcaSelect.addEventListener("change", function () {
-            var selectedMarca = marcaSelect.value;
-            if (selectedMarca === "default") {
-                // Selecione "Selecione uma marca primeiro" no select de modelo
-                modeloSelect.innerHTML = "";
-                var defaultOption = document.createElement("option");
-                defaultOption.value = "default";
-                defaultOption.text = "Selecione uma marca primeiro";
-                modeloSelect.appendChild(defaultOption);
-            } else {
-                // Preencha o select de modelo com base na marca selecionada
-                preencherModelos(selectedMarca);
-            }
-        });
 
-        // Inicialmente, preencha o select de marca
-        preencherMarcas();
+// Adicione um ouvinte de eventos ao select de marca
+marcaSelect.addEventListener("change", function () {
+  var alcool_cidade = document.getElementById("alcool_cidade");
+  var gasolina_cidade = document.getElementById("gasolina_cidade");
+  var alcool_estrada = document.getElementById("alcool_estrada");
+  var gasolina_estrada = document.getElementById("gasolina_estrada");
+  var versao = document.getElementById("versao");
+
+  alcool_cidade.value = null;
+  gasolina_cidade.value = null;
+  alcool_estrada.value = null;
+  gasolina_estrada.value = null;
+  versao.value=null;
+
+  var selectedMarca = marcaSelect.value;
+  if (selectedMarca === "default") {
+    // Selecione "Selecione uma marca primeiro" no select de modelo
+    modeloSelect.innerHTML = "";
+    var defaultOption = document.createElement("option");
+    defaultOption.value = "default";
+    defaultOption.text = "Selecione uma marca primeiro";
+    modeloSelect.appendChild(defaultOption);
+  } else {
+    // Preencha o select de modelo com base na marca selecionada
+    preencherModelos(selectedMarca);
+  }
+});
+
+// Inicialmente, preencha o select de marca
+preencherMarcas();
 
 
 // Dentro do evento do select de modelo
@@ -37326,23 +37395,27 @@ modeloSelect.addEventListener("change", function () {
 
 // Função para preencher o select de versão com base no modelo selecionado
 function preencherVersoes(modeloSelecionado) {
-    // Limpe as opções atuais do select de versão
-    
-    console.log("modelo selecionado:"+ modeloSelecionado);
-    versaoSelect.innerHTML = "";
+  // Limpe as opções atuais do select de versão
+  versaoSelect.innerHTML = "";
 
-    // Filtrar versões com base no modelo selecionado
-    var versoesFiltradas = modelosJSON.filter(function (versao) {
-        return versao.MODELO === modeloSelecionado;
-    });
+  // Adicione a opção padrão "Selecione a versão..."
+  var defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.text = "Selecione a versão...";
+  versaoSelect.appendChild(defaultOption);
 
-    // Preencha o select de versão com as opções filtradas
-    versoesFiltradas.forEach(function (versao) {
-        var option = document.createElement("option");
-        option.value = versao.VERSAO;
-        option.text = versao.VERSAO;
-        versaoSelect.appendChild(option);
-    });
+  // Filtrar versões com base no modelo selecionado
+  var versoesFiltradas = modelosJSON.filter(function (versao) {
+      return versao.MODELO === modeloSelecionado;
+  });
+
+  // Preencha o select de versão com as opções filtradas
+  versoesFiltradas.forEach(function (versao) {
+      var option = document.createElement("option");
+      option.value = versao.VERSAO;
+      option.text = versao.VERSAO;
+      versaoSelect.appendChild(option);
+  });
 }
 
 // Função para preencher as informações com base no modelo e versão selecionados
@@ -37386,7 +37459,7 @@ versaoSelect.addEventListener("change", function () {
 preencherMarcas();
 
 // Limpar o localStorage
-//localStorage.clear();
+localStorage.clear();
 
 });
 

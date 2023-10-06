@@ -25,10 +25,35 @@
                         SOBRE O APP
                     </a>
                 </li>
+                <!--<li>
+                    <a href="#" class="list" id="link-sugestoes">
+                        SUGESTÕES
+                    </a>
+                </li>-->
             </ul>
         </nav>
     </header>
     <main>
+        <div class="modal"  style="display:none;" id="alerta" style="z-index: 1;">
+            <div class="modal-content">
+                <span class="close" id="fechar-alerta">&times;</span>
+                <p id="alert-text"></p> 
+                <button class="btn" id="button-close">OK</button>
+            </div>
+        </div>
+        <div class="modal"  style="display:none;" id="alerta_especifico" style="z-index: 2;">
+            <div class="modal-content">
+                <p id="alert-text2"></p> 
+                <button class="btn" id="button-close-especifico">OK</button>
+            </div>
+        </div>
+        <div class="modal"  style="display:none;" id="alerta_especifico3" style="z-index: 2;">
+            <div class="modal-content">
+                <p id="alert-text3"></p> 
+                <button class="btn" id="button-close-especifico3">OK</button>
+            </div>
+        </div>
+
         <div id="sobre_app-modal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close" id="fechar-sobre_app">&times;</span>
@@ -50,7 +75,20 @@
                 </ul>        
             </div>
         </div>
-        <div id="importar" class="modal" style="display:none;">
+        <!--<div id="box-sugestoes" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="fechar-sobre_app">&times;</span>
+                <h2>
+                    Escreva sua sugestão para gente!
+                </h2>      
+                <textarea>
+
+                </textarea>
+                <input type="button">
+            </div>
+        </div>-->
+
+        <div id="importar" class="modal" style="display:none;z-index: 1;">
             <div class="modal-content">
                 <div>
                 <span class="close" id="fechar-rendimento_pesquisa">×</span>
@@ -134,7 +172,7 @@
             </picture>
             <p id="frase_inicial">Toque no botão "+ Veículo" para começar</p>
         </div>
-        <div class="modal" id="rendimento_modelo" style="display: none;">
+        <div class="modal" id="rendimento_modelo" style="display: none;  z-index: 1">
             <div class="modal-content">
                 <span class="close" id="fechar-rendimento-modelo">×</span>
                 <h1>Qual o rendimento do seu veículo?</h1>
