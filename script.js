@@ -38136,7 +38136,7 @@ versaoSelect.addEventListener("change", function () {
 preencherMarcas();
 
 // Limpar o localStorage
-localStorage.clear();
+//localStorage.clear();
 
 });
 
