@@ -34,20 +34,20 @@
         </nav>
     </header>
     <main>
-        <div class="modal"  style="display:none;" id="alerta" style="z-index: 1;">
+        <div class="modal" id="alerta" style="z-index: 1;display:none;">
             <div class="modal-content">
                 <span class="close" id="fechar-alerta">&times;</span>
                 <p id="alert-text"></p> 
                 <button class="btn" id="button-close">OK</button>
             </div>
         </div>
-        <div class="modal"  style="display:none;" id="alerta_especifico" style="z-index: 2;">
+        <div class="modal" id="alerta_especifico" style="display:none;z-index: 2;">
             <div class="modal-content">
                 <p id="alert-text2"></p> 
                 <button class="btn" id="button-close-especifico">OK</button>
             </div>
         </div>
-        <div class="modal"  style="display:none;" id="alerta_especifico3" style="z-index: 2;">
+        <div class="modal" id="alerta_especifico3" style="display:none;z-index: 2;">
             <div class="modal-content">
                 <p id="alert-text3"></p> 
                 <button class="btn" id="button-close-especifico3">OK</button>
@@ -78,7 +78,7 @@
         <div id="mais_economicos" class="modal" style="display:none; font-size:9px;">
             <div class="modal-content">
                 <span class="close" id="fechar-mais_economico">&times;</span>            
-                <h1>Ranking - Carros Mais Econômicos</h2>
+                <h1>Ranking - Carros Mais Econômicos</h1>
                 <table>
                     <thead>
                         <tr>
@@ -203,7 +203,7 @@
                     <option value="" disabled selected>Selecione a marca...</option></select><br>
                 <label for="modelo">MODELO:</label>
                 <br>
-                <select id="modelo" name="modelo" style="font-size:16px;" placeholder="Selecione a marca">
+                <select id="modelo" name="modelo" style="font-size:16px;">
                 <option value="" disabled selected>Selecione o modelo...</option>
                 </select><br>
                 <label for="versao">VERSÃO:</label>
@@ -214,27 +214,27 @@
                 </div>
                 <div id="resultado_importacao">
                 <hr>
-                <h6 id="cx_classificacao" style="width:100px;margin: 0px 0px;position:relative;left: 0px;background-color:green;">
-                </h6>
+                <div id="cx_classificacao" style="margin: 0px 0px; position: relative; left: 0px;">
+                </div>
                 <h5>
                     Consumo na cidade:
                 </h5>   
                 <label for="alcool_cidade">Álcool (km/L):</label>
                 <input id="alcool_cidade" name="alcool_cidade"  class="input_consumo" style="font-size:20px;" disabled>
-                </input><br>
+                <br>
                 <label for="gasolina_cidade">Gasolina (km/L):</label>
-                <input id="gasolina_cidade" name="gasolina_cidade"  class="input_consumo"style="font-size:20px;" disabled>
-                </input>
+                <input id="gasolina_cidade" name="gasolina_cidade"  class="input_consumo" style="font-size:20px;" disabled>
+                
                 <hr>
                 <h5>
                     Consumo na estrada:
                 </h5>
                 <label for="alcool_estrada">Álcool (km/L):</label>
                 <input id="alcool_estrada" name="alcool_estrada" class="input_consumo" style="font-size:20px;" disabled>
-                </input><br>
+                <br>
                 <label for="gasolina_estrada">Gasolina (km/L):</label>
-                <input id="gasolina_estrada" name="gasolina_estrada"  class="input_consumo"style="font-size:20px;" disabled>
-                </input>
+                <input id="gasolina_estrada" name="gasolina_estrada"  class="input_consumo" style="font-size:20px;" disabled>
+                
                 </div>
                 <p id="fonte" style="font-size:60%; text-align: right;margin:0px 0px;"> Fonte: INMETRO</p>
                 
@@ -348,8 +348,8 @@
                     </div> 
             </div>
             <div id="automovel_cadastrado">
-                
-                <span id="editar_automovel" aria-label="editar dados veículo">&#x270E;</span>
+                <div id="editar_automovel" aria-label="Editar veículo">&#x270E;</div>
+
                 <h1 style="font-size: 16px;">Veículo cadastrado (rendimento):</h1>
                 <hr>
                 <h2>
@@ -386,7 +386,7 @@
     <script src="script.js"></script>
     <script>
         if (typeof navigator.serviceWorker !== 'undefined') {
-            navigator.serviceWorker.register('pwabuilder1-sw.js')
+            navigator.serviceWorker.register('pwabuilder-sw.js')
         }
     </script>
 </body>
