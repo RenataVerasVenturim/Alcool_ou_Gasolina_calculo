@@ -25,11 +25,11 @@
                         SOBRE O APP
                     </a>
                 </li>
-                <!--<li>
-                    <a href="#" class="list" id="link-sugestoes">
-                        SUGESTÕES
+                <li>
+                    <a href="#" class="list" id="link-ranking">
+                        RANKING CARROS
                     </a>
-                </li>-->
+                </li>
             </ul>
         </nav>
     </header>
@@ -75,18 +75,120 @@
                 </ul>        
             </div>
         </div>
-        <!--<div id="box-sugestoes" class="modal" style="display: none;">
+        <div id="mais_economicos" class="modal" style="display:none; font-size:9px;">
             <div class="modal-content">
-                <span class="close" id="fechar-sobre_app">&times;</span>
-                <h2>
-                    Escreva sua sugestão para gente!
-                </h2>      
-                <textarea>
-
-                </textarea>
-                <input type="button">
+                <span class="close" id="fechar-mais_economico">&times;</span>            
+                <h1>Ranking - Carros Mais Econômicos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>MARCA</th>
+                            <th>MODELO</th>
+                            <th>VERSAO</th>
+                            <th>Álcool Cidade (km/l)</th>
+                            <th>Álcool Estrada (km/l)</th>
+                            <th>Gasolina Cidade (km/l)</th>
+                            <th>Gasolina Estrada (km/l)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MINI</td>
+                            <td>Countryman</td>
+                            <td>PHEV 1.5 - 12V A-6</td>
+                            <td>10.1</td>
+                            <td>10.2</td>
+                            <td>23.4</td>
+                            <td>27.9</td>
+                        </tr>
+                        <tr>
+                            <td>VOLVO</td>
+                            <td>XC90 (ano modelo 2024)</td>
+                            <td>T8 POLESTAR 2.0-16V A-8</td>
+                            <td>10.3</td>
+                            <td>10.3</td>
+                            <td>24.2</td>
+                            <td>23.3</td>
+                        </tr>
+                        <tr>
+                            <td>VOLVO</td>
+                            <td>XC90 (ano modelo 2024)</td>
+                            <td>T8 R-DESIGN 2.0-16V A-8</td>
+                            <td>10.3</td>
+                            <td>10.3</td>
+                            <td>24.2</td>
+                            <td>23.3</td>
+                        </tr>
+                        <tr>
+                            <td>VOLVO</td>
+                            <td>XC90 (ano modelo 2024)</td>
+                            <td>T8 PLUS 2.0-16V A-8</td>
+                            <td>10.3</td>
+                            <td>10.3</td>
+                            <td>24.2</td>
+                            <td>23.3</td>
+                        </tr>
+                        <tr>
+                            <td>VOLVO</td>
+                            <td>XC90</td>
+                            <td>T8 POLESTAR 2.0-16V A-8</td>
+                            <td>9</td>
+                            <td>9.1</td>
+                            <td>23.7</td>
+                            <td>21.4</td>
+                        </tr>
+                        <tr>
+                            <td>VOLVO</td>
+                            <td>XC90</td>
+                            <td>T8 R-DESIGN 2.0-16V A-8</td>
+                            <td>9</td>
+                            <td>9.1</td>
+                            <td>23.7</td>
+                            <td>21.4</td>
+                        </tr>
+                        <tr>
+                            <td>VOLVO</td>
+                            <td>XC90</td>
+                            <td>T8 PLUS 2.0-16V A-8</td>
+                            <td>9</td>
+                            <td>9.1</td>
+                            <td>23.7</td>
+                            <td>21.4</td>
+                        </tr>
+                        <tr>
+                            <td>LAND ROVER</td>
+                            <td>VELAR</td>
+                            <td>PHEV SE RDYN 2.0-16V A-8</td>
+                            <td>8.6</td>
+                            <td>9.4</td>
+                            <td>19.1</td>
+                            <td>20.1</td>
+                        </tr>
+                        <tr>
+                            <td>LAND ROVER</td>
+                            <td>VELAR</td>
+                            <td>PHEV HSE RDYN 2.0-16V A-8</td>
+                            <td>8.6</td>
+                            <td>9.4</td>
+                            <td>19.1</td>
+                            <td>20.1</td>
+                        </tr>
+                        <tr>
+                            <td>LAND ROVER</td>
+                            <td>VELAR</td>
+                            <td>PHEV S 2.0-16V A-8</td>
+                            <td>8.6</td>
+                            <td>9.4</td>
+                            <td>19.1</td>
+                            <td>20.1</td>
+                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
+                    </tbody>
+                </table>
             </div>
-        </div>-->
+        </div>
+        
+        
 
         <div id="importar" class="modal" style="display:none;z-index: 1;">
             <div class="modal-content">
@@ -98,31 +200,7 @@
                 <label for="marca">MARCA:</label>
                 <br>
                 <select id="marca" name="marca" style="font-size:16px;">
-                    <option value="" disabled selected>Selecione a marca...</option>
-
-                    <!--<option value="AUDI">AUDI</option>
-                    <option value="BMW">BMW</option>
-                    <option value="CAOA CHERY">CAOA CHERY</option>
-                    <option value="CHEVROLET">CHEVROLET</option>
-                    <option value="CHERY">CHERY</option>
-                    <option value="CITROEN">CITROEN</option>
-                    <option value="FORD">FORD</option>
-                    <option value="FIAT">FIAT</option>
-                    <option value="HONDA">HONDA</option>
-                    <option value="HYUNDAI">HYUNDAI</option>
-                    <option value="JAC">JAC</option>
-                    <option value="JAGUAR">JAGUAR</option>
-                    <option value="JEEP">JEEP</option>
-                    <option value="KIA">KIA</option>
-                    <option value="LAND ROVER">LAND ROVER</option>
-                    <option value="Mercedes-Benz">Mercedes-Benz</option>
-                    <option value="Mitsubishi">Mitsubishi</option>
-                    <option value="NISSAN">NISSAN</option>
-                    <option value="Peugeot">Peugeot</option>
-                    <option value="Renault">Renault</option>
-                    <option value="TOYOTA">TOYOTA</option>
-                    <option value="VOLKSWAGEN">VOLKSWAGEN</option>                                  
-                    --></select><br>
+                    <option value="" disabled selected>Selecione a marca...</option></select><br>
                 <label for="modelo">MODELO:</label>
                 <br>
                 <select id="modelo" name="modelo" style="font-size:16px;" placeholder="Selecione a marca">
@@ -136,6 +214,8 @@
                 </div>
                 <div id="resultado_importacao">
                 <hr>
+                <h6 id="cx_classificacao" style="width:100px;margin: 0px 0px;position:relative;left: 0px;background-color:green;">
+                </h6>
                 <h5>
                     Consumo na cidade:
                 </h5>   

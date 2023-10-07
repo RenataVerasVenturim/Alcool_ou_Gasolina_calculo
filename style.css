@@ -454,6 +454,14 @@ font-size:18px;
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
+  /*cx de classificação inmetro*/
+  .cx_classificacao {
+    width: 100px;
+    margin: 0px 0px;
+    position: relative;
+    left: 0px;
+    background-color: green
+  }
   
   /* Estilo do texto ao lado do botão */
   #status {
