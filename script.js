@@ -33655,7 +33655,7 @@ var modelosJSON = [
     "Gasolina\nCidade (km/l)": 11.1,
     "Gasolina\nEstrada (km/l)": 13.2,
     "Consumo Energético (MJ/km)": 1.83,
-    "Classificação": "A"
+    "Classificação": "B"
   },
   {
     "MARCA": "VOLKSWAGEN",
@@ -33666,7 +33666,7 @@ var modelosJSON = [
     "Gasolina\nCidade (km/l)": 11.1,
     "Gasolina\nEstrada (km/l)": 13.2,
     "Consumo Energético (MJ/km)": 1.83,
-    "Classificação": "A"
+    "Classificação": "B"
   },
   {
     "MARCA": "VOLKSWAGEN",
