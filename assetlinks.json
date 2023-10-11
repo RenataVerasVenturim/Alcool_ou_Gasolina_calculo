@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "io.github.renataverasventurim.twa3",
-      "sha256_cert_fingerprints": ["B8:78:DE:80:CA:0F:B9:A4:4D:44:DF:71:95:11:FB:BE:49:B1:57:51:F4:5C:2B:AB:CA:F2:D9:DF:47:B3:5F:20"]
+      "sha256_cert_fingerprints": ["E2:62:0E:CE:3B:00:61:86:CB:6D:50:7D:D3:E8:16:45:B5:B0:CE:BA:3A:F1:66:6D:37:C2:5B:9F:03:84:8C:93"]
     }
   }
 ]
