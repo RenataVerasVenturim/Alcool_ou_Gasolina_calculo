@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "xyz.appmaker.axynev",
-      "sha256_cert_fingerprints": ["3E:7F:2C:35:C6:79:D3:F8:E2:64:7F:14:FC:55:B0:74:02:2D:91:31"]
+      "sha256_cert_fingerprints": ["8F:55:C0:3B:0D:8D:24:3B:B9:8E:CF:42:D8:EA:63:AC:C1:41:91:65:24:0A:AD:D9:47:D2:B8:2D:A0:C0:A6:99"]
     }
   }
 ]
